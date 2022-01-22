@@ -1,4 +1,8 @@
 {
   "name": "meroKharcha",
-  "displayName": "meroKharcha"
+  "displayName": "meroKharcha",
+  "version":"1.0",
+  "android":{
+    "buildNumber":"1"
+  }
 }
