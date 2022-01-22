@@ -1,10 +1,14 @@
 import React from 'react';
 import {View, ImageBackground, StyleSheet, Text} from 'react-native';
 
+import {useNavigation} from '@react-navigation/core';
+
 import {CustomButton} from '../../common';
 import {Images, CommonStyles, Colors} from '../../constants';
 
 function WelcomeScreen() {
+  const navigation = useNavigation();
+
   return (
     <ImageBackground
       source={Images.authScreenBackground}
@@ -29,9 +33,13 @@ function WelcomeScreen() {
           title="Login"
           customButtonStyle={STYLES.loginButton}
           customTitleStyle={STYLES.loginButtonTitle}
+          onPress={() => navigation.navigate('Login')}
         />
 
-        <CustomButton title="Sign Up" />
+        <CustomButton
+          title="Sign Up"
+          onPress={() => navigation.navigate('SignUp')}
+        />
       </View>
     </ImageBackground>
   );
