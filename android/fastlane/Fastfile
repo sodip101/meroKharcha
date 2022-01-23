@@ -24,6 +24,12 @@ default_platform(:android)
 platform :android do
   desc "the main lane"
   lane :distribute do
+    increment_version_code(
+      gradle_file_path: "./app/build.gradle",
+      #ext_constant_name: "test"
+      #app_folder_name:"app"
+    )
+
     gradle(task: "clean assembleRelease",project_dir:"./",print_command:false,properties:{
       "MYAPP_UPLOAD_STORE_FILE" => ENV["MYAPP_UPLOAD_STORE_FILE"],
       "MYAPP_UPLOAD_STORE_PASSWORD" => ENV["MYAPP_UPLOAD_STORE_PASSWORD"],
@@ -35,7 +41,7 @@ platform :android do
       app: "1:239624335052:android:70c76149859a6b79825c69",
       groups: "merokharchateam",
       firebase_cli_token: ENV["FIREBASE_TOKEN"],
-      release_notes: "first test release"
+      release_notes: "added Login & Sign Up screens"
     )
 
   end
